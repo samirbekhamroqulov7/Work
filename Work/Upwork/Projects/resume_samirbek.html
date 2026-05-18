@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Samirbek — Full-Stack Developer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; color: #333; line-height: 1.6; padding: 40px 50px; max-width: 800px; margin: 0 auto; }
+        
+        .header { border-bottom: 3px solid #2563eb; padding-bottom: 20px; margin-bottom: 25px; }
+        .name { font-size: 32px; font-weight: 700; color: #1e293b; }
+        .title { font-size: 16px; color: #2563eb; margin-top: 5px; font-weight: 500; }
+        .contacts { margin-top: 10px; font-size: 13px; color: #64748b; }
+        .contacts span { margin-right: 20px; }
+
+        h2 { font-size: 16px; color: #2563eb; text-transform: uppercase; letter-spacing: 1px; margin-top: 25px; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; }
+        
+        .summary { font-size: 14px; color: #475569; }
+
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .skill-category { margin-bottom: 10px; }
+        .skill-label { font-weight: 600; font-size: 13px; color: #1e293b; }
+        .skill-items { font-size: 13px; color: #475569; }
+
+        .experience-item { margin-bottom: 18px; }
+        .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
+        .exp-title { font-weight: 600; font-size: 14px; color: #1e293b; }
+        .exp-date { font-size: 12px; color: #94a3b8; }
+        .exp-company { font-size: 13px; color: #2563eb; margin-bottom: 5px; }
+        .exp-desc { font-size: 13px; color: #475569; }
+        .exp-desc li { margin-left: 18px; margin-bottom: 3px; }
+
+        .project-item { margin-bottom: 15px; }
+        .proj-name { font-weight: 600; font-size: 14px; color: #1e293b; }
+        .proj-tech { font-size: 12px; color: #2563eb; margin-bottom: 3px; }
+        .proj-desc { font-size: 13px; color: #475569; }
+
+        .lang-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+        .lang-item { font-size: 13px; }
+        .lang-name { font-weight: 600; }
+        .lang-level { color: #64748b; }
+
+        @media print {
+            body { padding: 20px 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="name">Samirbek</div>
+        <div class="title">Full-Stack Developer | Python, C#, PHP, JavaScript | Unity, WordPress, Automation</div>
+        <div class="contacts">
+            <span>📍 Uzbekistan</span>
+            <span>💼 Upwork / Freelance</span>
+            <span>🌐 English, Russian, Uzbek</span>
+        </div>
+    </div>
+
+    <h2>Professional Summary</h2>
+    <p class="summary">
+        Versatile full-stack developer with experience in web applications, desktop software, mobile apps, game development, and process automation. Proficient in multiple programming languages and frameworks. Focused on delivering clean, functional solutions on time and within budget.
+    </p>
+
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-category">
+            <div class="skill-label">Languages:</div>
+            <div class="skill-items">Python, C#, C++, PHP, JavaScript, HTML/CSS, SQL, VBA</div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-label">Web Development:</div>
+            <div class="skill-items">WordPress, WooCommerce, Django, Flask, FastAPI, React, Node.js, REST API</div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-label">Desktop & Mobile:</div>
+            <div class="skill-items">.NET (WinForms, WPF, MAUI), Visual Studio, SQL Server, SQLite</div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-label">Game Development:</div>
+            <div class="skill-items">Unity, C#, Game Mechanics, UI/UX, Physics</div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-label">Automation & Bots:</div>
+            <div class="skill-items">Telegram Bots (Aiogram, Telethon), Excel/VBA, Web Scraping, Selenium</div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-label">Databases:</div>
+            <div class="skill-items">PostgreSQL, MySQL, SQL Server, SQLite, MongoDB</div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-label">Tools & Platforms:</div>
+            <div class="skill-items">Git, Docker, Linux, VS Code, Visual Studio, Figma</div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-label">Integrations:</div>
+            <div class="skill-items">YooKassa, Yandex Maps API, 1C, Stripe, Payment Gateways</div>
+        </div>
+    </div>
+
+    <h2>Projects</h2>
+
+    <div class="project-item">
+        <div class="proj-name">Unity Games (3 titles)</div>
+        <div class="proj-tech">Unity, C#, Game Design</div>
+        <div class="proj-desc">Developed 3 complete games from concept to release. Implemented game mechanics, physics systems, UI, animations, and optimization for target platforms.</div>
+    </div>
+
+    <div class="project-item">
+        <div class="proj-name">Exam Database Application</div>
+        <div class="proj-tech">C#, .NET WinForms, SQL Server</div>
+        <div class="proj-desc">Desktop and mobile application for exam preparation. Features: test database with categories, scoring system, progress tracking, timer, and results history.</div>
+    </div>
+
+    <div class="project-item">
+        <div class="proj-name">Multi-Vendor Marketplace</div>
+        <div class="proj-tech">WordPress, WooCommerce, Dokan Pro, PHP, YooKassa API</div>
+        <div class="proj-desc">E-commerce marketplace with vendor registration, product catalog, payment processing (YooKassa), seller payouts, Yandex Maps integration, and 1C synchronization.</div>
+    </div>
+
+    <div class="project-item">
+        <div class="proj-name">Warehouse Management System</div>
+        <div class="proj-tech">Excel, VBA, Macros</div>
+        <div class="proj-desc">Automated inventory tracking system with multi-warehouse support, material flow tracking, production planning module, deficit calculation, and full operations log.</div>
+    </div>
+
+    <div class="project-item">
+        <div class="proj-name">Telegram Message Analysis System</div>
+        <div class="proj-tech">Python, PostgreSQL, pgvector, FastAPI, NLP</div>
+        <div class="proj-desc">System for semantic search across Telegram chat history. Uses embeddings for relevance scoring, finds potential leads based on service topic input.</div>
+    </div>
+
+    <h2>Experience</h2>
+
+    <div class="experience-item">
+        <div class="exp-header">
+            <span class="exp-title">Freelance Full-Stack Developer</span>
+            <span class="exp-date">2023 — Present</span>
+        </div>
+        <div class="exp-company">Self-employed (Kwork, Upwork)</div>
+        <div class="exp-desc">
+            <ul>
+                <li>Web development: WordPress sites, custom PHP/Python backends, REST APIs</li>
+                <li>Desktop applications: .NET WinForms, database-driven tools</li>
+                <li>Game development: Unity projects with C#</li>
+                <li>Automation: Telegram bots, Excel/VBA systems, web scrapers</li>
+                <li>Client communication, requirements gathering, on-time delivery</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Languages</h2>
+    <div class="lang-grid">
+        <div class="lang-item">
+            <span class="lang-name">Uzbek</span> — <span class="lang-level">Native</span>
+        </div>
+        <div class="lang-item">
+            <span class="lang-name">Russian</span> — <span class="lang-level">Fluent</span>
+        </div>
+        <div class="lang-item">
+            <span class="lang-name">English</span> — <span class="lang-level">Conversational</span>
+        </div>
+    </div>
+
+    <h2>Education</h2>
+    <div class="experience-item">
+        <div class="exp-header">
+            <span class="exp-title">[Your University / College Name]</span>
+            <span class="exp-date">[Year — Year]</span>
+        </div>
+        <div class="exp-company">Computer Science / Information Technology</div>
+    </div>
+
+</body>
+</html>

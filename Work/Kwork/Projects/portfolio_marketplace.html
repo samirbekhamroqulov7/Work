@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketHub — Маркетплейс</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f7fa; color: #333; }
+        
+        /* Header */
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { color: white; font-size: 24px; font-weight: 700; }
+        .logo span { color: #ffd700; }
+        .nav { display: flex; gap: 25px; align-items: center; }
+        .nav a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 14px; }
+        .nav-btn { background: #ffd700; color: #333; padding: 8px 20px; border-radius: 20px; font-weight: 600; text-decoration: none; font-size: 14px; }
+        .search-bar { display: flex; align-items: center; background: white; border-radius: 25px; padding: 8px 20px; width: 400px; }
+        .search-bar input { border: none; outline: none; width: 100%; font-size: 14px; }
+        .search-bar button { background: #667eea; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 14px; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 60px 40px; text-align: center; color: white; }
+        .hero h1 { font-size: 36px; margin-bottom: 15px; }
+        .hero p { font-size: 18px; opacity: 0.9; margin-bottom: 30px; }
+        .hero-stats { display: flex; justify-content: center; gap: 60px; margin-top: 30px; }
+        .stat { text-align: center; }
+        .stat-num { font-size: 32px; font-weight: 700; color: #ffd700; }
+        .stat-label { font-size: 14px; opacity: 0.8; margin-top: 5px; }
+
+        /* Categories */
+        .categories { padding: 40px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 24px; font-weight: 700; margin-bottom: 25px; color: #333; }
+        .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .cat-card { background: white; border-radius: 12px; padding: 25px; text-align: center; box-shadow: 0 2px 15px rgba(0,0,0,0.08); transition: transform 0.2s; }
+        .cat-card:hover { transform: translateY(-3px); }
+        .cat-icon { font-size: 36px; margin-bottom: 12px; }
+        .cat-name { font-weight: 600; font-size: 15px; }
+        .cat-count { color: #888; font-size: 13px; margin-top: 5px; }
+
+        /* Products */
+        .products { padding: 0 40px 40px; max-width: 1200px; margin: 0 auto; }
+        .prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .prod-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.08); }
+        .prod-img { height: 180px; background: linear-gradient(45deg, #e8e8e8, #f5f5f5); display: flex; align-items: center; justify-content: center; font-size: 48px; }
+        .prod-img.img1 { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+        .prod-img.img2 { background: linear-gradient(135deg, #d4fc79, #96e6a1); }
+        .prod-img.img3 { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+        .prod-img.img4 { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+        .prod-info { padding: 15px; }
+        .prod-name { font-weight: 600; font-size: 14px; margin-bottom: 8px; }
+        .prod-seller { color: #888; font-size: 12px; margin-bottom: 8px; }
+        .prod-price { font-size: 18px; font-weight: 700; color: #667eea; }
+        .prod-old-price { text-decoration: line-through; color: #aaa; font-size: 13px; margin-left: 8px; }
+        .prod-rating { display: flex; align-items: center; gap: 5px; margin-top: 8px; }
+        .stars { color: #ffd700; font-size: 13px; }
+        .rating-num { color: #888; font-size: 12px; }
+        .prod-badge { position: relative; }
+        .badge { position: absolute; top: 10px; left: 10px; background: #ff4757; color: white; padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+        .badge.new { background: #2ed573; }
+
+        /* Features */
+        .features { background: white; padding: 50px 40px; margin-top: 20px; }
+        .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .feat-card { text-align: center; padding: 20px; }
+        .feat-icon { font-size: 40px; margin-bottom: 15px; }
+        .feat-title { font-weight: 700; font-size: 16px; margin-bottom: 8px; }
+        .feat-desc { color: #666; font-size: 14px; line-height: 1.5; }
+
+        /* Footer */
+        .footer { background: #2d3436; color: white; padding: 30px 40px; text-align: center; margin-top: 40px; }
+        .footer p { opacity: 0.7; font-size: 14px; }
+
+        /* Payment badges */
+        .payments { display: flex; justify-content: center; gap: 15px; margin-top: 20px; align-items: center; }
+        .pay-badge { background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 8px; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Market<span>Hub</span></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск товаров и продавцов...">
+            <button>🔍</button>
+        </div>
+        <div class="nav">
+            <a href="#">Каталог</a>
+            <a href="#">Продавцам</a>
+            <a href="#">Доставка</a>
+            <a href="#" class="nav-btn">Войти</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>Маркетплейс для вашего бизнеса</h1>
+        <p>Покупайте и продавайте с удобной оплатой через ЮKassa и доставкой по всей России</p>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-num">1 200+</div>
+                <div class="stat-label">Продавцов</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">15 000+</div>
+                <div class="stat-label">Товаров</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">50 000+</div>
+                <div class="stat-label">Покупателей</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="categories">
+        <div class="section-title">Популярные категории</div>
+        <div class="cat-grid">
+            <div class="cat-card">
+                <div class="cat-icon">🏠</div>
+                <div class="cat-name">Дом и сад</div>
+                <div class="cat-count">2 340 товаров</div>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">👕</div>
+                <div class="cat-name">Одежда</div>
+                <div class="cat-count">5 120 товаров</div>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">📱</div>
+                <div class="cat-name">Электроника</div>
+                <div class="cat-count">3 890 товаров</div>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🎨</div>
+                <div class="cat-name">Хендмейд</div>
+                <div class="cat-count">1 560 товаров</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="products">
+        <div class="section-title">Рекомендуемые товары</div>
+        <div class="prod-grid">
+            <div class="prod-card">
+                <div class="prod-badge">
+                    <span class="badge new">Новинка</span>
+                    <div class="prod-img img1">🪑</div>
+                </div>
+                <div class="prod-info">
+                    <div class="prod-name">Кресло-качалка из дуба</div>
+                    <div class="prod-seller">Продавец: WoodMaster</div>
+                    <div class="prod-price">12 500 ₽</div>
+                    <div class="prod-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-num">(48)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-card">
+                <div class="prod-badge">
+                    <span class="badge">-20%</span>
+                    <div class="prod-img img2">🌿</div>
+                </div>
+                <div class="prod-info">
+                    <div class="prod-name">Набор керамических горшков</div>
+                    <div class="prod-seller">Продавец: GreenLife</div>
+                    <div class="prod-price">2 800 ₽ <span class="prod-old-price">3 500 ₽</span></div>
+                    <div class="prod-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-num">(124)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-card">
+                <div class="prod-badge">
+                    <div class="prod-img img3">💡</div>
+                </div>
+                <div class="prod-info">
+                    <div class="prod-name">Умная лампа с пультом</div>
+                    <div class="prod-seller">Продавец: TechHome</div>
+                    <div class="prod-price">4 200 ₽</div>
+                    <div class="prod-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-num">(89)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-card">
+                <div class="prod-badge">
+                    <span class="badge new">Хит</span>
+                    <div class="prod-img img4">🧶</div>
+                </div>
+                <div class="prod-info">
+                    <div class="prod-name">Плед ручной работы</div>
+                    <div class="prod-seller">Продавец: CozyKnit</div>
+                    <div class="prod-price">6 900 ₽</div>
+                    <div class="prod-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-num">(203)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feat-grid">
+            <div class="feat-card">
+                <div class="feat-icon">💳</div>
+                <div class="feat-title">Безопасная оплата</div>
+                <div class="feat-desc">Оплата через ЮKassa. Деньги защищены до получения товара. Вывод средств продавцам — автоматически.</div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">📍</div>
+                <div class="feat-title">Яндекс.Карты</div>
+                <div class="feat-desc">Покупатель указывает точку доставки на карте. Продавец видит адрес и рассчитывает стоимость.</div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">📊</div>
+                <div class="feat-title">Интеграция с 1С</div>
+                <div class="feat-desc">Автоматическая синхронизация товаров, заказов и остатков с 1С Бухгалтерией.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>MarketHub © 2026 — Маркетплейс на WordPress + WooCommerce + Dokan</p>
+        <div class="payments">
+            <span class="pay-badge">ЮKassa</span>
+            <span class="pay-badge">СБП</span>
+            <span class="pay-badge">Visa</span>
+            <span class="pay-badge">MasterCard</span>
+            <span class="pay-badge">МИР</span>
+        </div>
+    </div>
+</body>
+</html>
